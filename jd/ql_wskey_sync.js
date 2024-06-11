@@ -24,7 +24,7 @@ async function getScriptUrl() {
 (async () => {
   const ql_script = (await getScriptUrl()) || '';
   eval(ql_script);
-  await $.ql.login();
+  await $.ql.initial();
 
   
   const wskeyRes = await $.ql.select('JD_WSCK');
