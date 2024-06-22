@@ -11,7 +11,9 @@ const jd_wskeys = $.read('#WskeysJD')
 
 function getPin(ck) {
   if (!ck) return '';
-  return decodeURIComponent(ck.match(/pin=(.+?);/)[0]);
+  return ck.match(/pin=(.+?);/)[0];
+  // return decodeURIComponent(ck.match(/pin=(.+?);/)[0]);
+
 }
 
 async function getScriptUrl() {
@@ -35,11 +37,12 @@ async function getScriptUrl() {
 
 
   for (const wskey of wskeyRes.data) {
-    console.log("wskey:"+JSON.stringify(wskey))
-    console.log("wskey.value:"+wskey.value)
+    // console.log("wskey:"+JSON.stringify(wskey))
+    // console.log("wskey.value:"+wskey.value)
 
     var pinStr = getPin(wskey.value);
-    console.log("pinStr.value:"+pinStr)
+    // pinStr = encodeURI(pinStr);
+    // console.log("pinStr.value:"+pinStr)
     var dd = jd_wskeys.match(pinStr+"wskey=(.+?);")
     if(dd!=null){
       var val = dd[0]
