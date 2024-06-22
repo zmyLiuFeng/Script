@@ -35,11 +35,11 @@ async function getScriptUrl() {
 
 
   for (const wskey of wskeyRes.data) {
-    //console.log("wskey:"+JSON.stringify(wskey))
-    //console.log("wskey.value:"+wskey.value)
+    console.log("wskey:"+JSON.stringify(wskey))
+    console.log("wskey.value:"+wskey.value)
 
     var pinStr = getPin(wskey.value);
-    //console.log("pinStr.value:"+pinStr)
+    console.log("pinStr.value:"+pinStr)
     var dd = jd_wskeys.match(pinStr+"wskey=(.+?);")
     if(dd!=null){
       var val = dd[0]
